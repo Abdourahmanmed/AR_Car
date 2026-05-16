@@ -4,7 +4,7 @@ import { Car, Gauge, Menu, ShoppingCart } from "lucide-react";
 
 const mobileNavigation = [
   { label: "Dashboard", href: "/admin", icon: Gauge },
-  { label: "Cars", href: "/admin", icon: Car },
+  { label: "Cars", href: "/admin/cars", icon: Car },
   { label: "Achats", href: "/admin", icon: ShoppingCart },
   { label: "Menu", href: "/admin", icon: Menu },
 ];
@@ -17,7 +17,8 @@ export default function AdminMobileNav() {
           <NavLink
             key={item.label}
             to={item.href}
-            className="flex flex-col items-center gap-1 rounded-2xl px-2 py-2 text-xs font-semibold text-gray-400 transition hover:bg-white/5 hover:text-white"
+            end={item.href === "/admin"}
+            className={({ isActive }) => `flex flex-col items-center gap-1 rounded-2xl px-2 py-2 text-xs font-semibold transition ${isActive ? "bg-gradient-to-r from-red-600 to-orange-500 text-white" : "text-gray-400 hover:bg-white/5 hover:text-white"}`}
           >
             <item.icon className="h-5 w-5" />
             {item.label}

@@ -5,6 +5,9 @@ import Cars from "./pages/car";
 import AdminLayout from "./admin/layout/AdminLayout";
 import AdminLoginPage from "./admin/pages/AdminLoginPage";
 import DashboardPage from "./admin/pages/DashboardPage";
+import CarsPage from "./admin/pages/CarsPage";
+import CarFormPage from "./admin/pages/CarFormPage";
+import CarDetailsPage from "./admin/pages/CarDetailsPage";
 
 function App() {
   return (
@@ -15,6 +18,9 @@ function App() {
         <Route path="/admin/login" element={<AdminLoginPage />} />
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<DashboardPage />} />
+          <Route path="cars" element={<CarsPage />} />
+          <Route path="cars/new" element={<CarFormPage />} />
+          <Route path="cars/:id" element={<CarDetailsPage />} />
         </Route>
       </Routes>
     </Router>
