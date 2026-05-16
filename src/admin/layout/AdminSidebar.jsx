@@ -4,7 +4,7 @@ import { BarChart3, Car, CreditCard, Gauge, ShoppingCart, Users } from "lucide-r
 
 const navigation = [
   { label: "Dashboard", href: "/admin", icon: Gauge },
-  { label: "Voitures", href: "/admin", icon: Car },
+  { label: "Voitures", href: "/admin/cars", icon: Car },
   { label: "Réservations", href: "/admin", icon: BarChart3 },
   { label: "Achats", href: "/admin", icon: ShoppingCart },
   { label: "Paiements", href: "/admin", icon: CreditCard },
@@ -32,7 +32,7 @@ export default function AdminSidebar() {
             end={item.href === "/admin"}
             className={({ isActive }) =>
               `flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-semibold transition ${
-                isActive && item.label === "Dashboard"
+                isActive
                   ? "bg-gradient-to-r from-red-600 to-orange-500 text-white shadow-lg shadow-red-600/25"
                   : "text-gray-400 hover:bg-white/5 hover:text-white"
               }`
