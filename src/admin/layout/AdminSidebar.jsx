@@ -7,7 +7,7 @@ const navigation = [
   { label: "Voitures", href: "/admin/cars", icon: Car },
   { label: "Propriétaires", href: "/admin/owners", icon: UserRoundCheck },
   { label: "Réservations", href: "/admin/bookings", icon: BarChart3 },
-  { label: "Achats", href: "/admin", icon: ShoppingCart },
+  { label: "Achats", href: "/admin/purchases", icon: ShoppingCart },
   { label: "Paiements", href: "/admin", icon: CreditCard },
   { label: "Utilisateurs", href: "/admin", icon: Users },
 ];
