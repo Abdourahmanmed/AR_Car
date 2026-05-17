@@ -8,7 +8,7 @@ const navigation = [
   { label: "Propriétaires", href: "/admin/owners", icon: UserRoundCheck },
   { label: "Réservations", href: "/admin/bookings", icon: BarChart3 },
   { label: "Achats", href: "/admin/purchases", icon: ShoppingCart },
-  { label: "Paiements", href: "/admin", icon: CreditCard },
+  { label: "Paiements", href: "/admin/payments", icon: CreditCard },
   { label: "Utilisateurs", href: "/admin", icon: Users },
 ];
 
