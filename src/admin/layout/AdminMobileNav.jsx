@@ -1,12 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Car, Gauge, ShoppingCart, UserRoundCheck } from "lucide-react";
+import { BarChart3, Car, Gauge, UserRoundCheck } from "lucide-react";
 
 const mobileNavigation = [
   { label: "Dashboard", href: "/admin", icon: Gauge },
   { label: "Cars", href: "/admin/cars", icon: Car },
   { label: "Owners", href: "/admin/owners", icon: UserRoundCheck },
-  { label: "Achats", href: "/admin", icon: ShoppingCart },
+  { label: "Bookings", href: "/admin/bookings", icon: BarChart3 },
 ];
 
 export default function AdminMobileNav() {
