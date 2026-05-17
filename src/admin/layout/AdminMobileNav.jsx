@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { BarChart3, Car, CreditCard, Gauge, ShoppingCart, UserRoundCheck } from "lucide-react";
+import { BarChart3, Car, CreditCard, Gauge, ReceiptText, ShoppingCart, UserRoundCheck } from "lucide-react";
 
 const mobileNavigation = [
   { label: "Dashboard", href: "/admin", icon: Gauge },
@@ -9,12 +9,13 @@ const mobileNavigation = [
   { label: "Bookings", href: "/admin/bookings", icon: BarChart3 },
   { label: "Achats", href: "/admin/purchases", icon: ShoppingCart },
   { label: "Paiements", href: "/admin/payments", icon: CreditCard },
+  { label: "Reçus", href: "/admin/receipts", icon: ReceiptText },
 ];
 
 export default function AdminMobileNav() {
   return (
     <nav className="fixed inset-x-3 bottom-3 z-50 rounded-3xl border border-white/10 bg-black/90 px-3 py-2 shadow-2xl shadow-black/60 backdrop-blur-xl lg:hidden">
-      <div className="grid grid-cols-6 gap-1">
+      <div className="grid grid-cols-4 gap-1 sm:grid-cols-7">
         {mobileNavigation.map((item) => (
           <NavLink
             key={item.label}

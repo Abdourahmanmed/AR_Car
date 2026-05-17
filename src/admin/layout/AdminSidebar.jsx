@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { BarChart3, Car, CreditCard, Gauge, ShoppingCart, UserRoundCheck, Users } from "lucide-react";
+import { BarChart3, Car, CreditCard, Gauge, ReceiptText, ShoppingCart, UserRoundCheck, Users } from "lucide-react";
 
 const navigation = [
   { label: "Dashboard", href: "/admin", icon: Gauge },
@@ -9,6 +9,7 @@ const navigation = [
   { label: "Réservations", href: "/admin/bookings", icon: BarChart3 },
   { label: "Achats", href: "/admin/purchases", icon: ShoppingCart },
   { label: "Paiements", href: "/admin/payments", icon: CreditCard },
+  { label: "Reçus", href: "/admin/receipts", icon: ReceiptText },
   { label: "Utilisateurs", href: "/admin", icon: Users },
 ];
 
