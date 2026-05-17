@@ -1,38 +1,62 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { BarChart3, Car, CreditCard, Gauge, ReceiptText, Settings, ShoppingCart, UserRoundCheck, Users } from "lucide-react";
+import {
+  BarChart3,
+  Car,
+  CreditCard,
+  Gauge,
+  LogOut,
+  ReceiptText,
+  Settings,
+  ShoppingCart,
+  UserRoundCheck,
+  X,
+} from "lucide-react";
 
 const navigation = [
   { label: "Dashboard", href: "/admin", icon: Gauge },
-  { label: "Voitures", href: "/admin/cars", icon: Car },
-  { label: "Propriétaires", href: "/admin/owners", icon: UserRoundCheck },
-  { label: "Réservations", href: "/admin/bookings", icon: BarChart3 },
-  { label: "Achats", href: "/admin/purchases", icon: ShoppingCart },
-  { label: "Paiements", href: "/admin/payments", icon: CreditCard },
-  { label: "Reçus", href: "/admin/receipts", icon: ReceiptText },
+  { label: "Cars", href: "/admin/cars", icon: Car },
+  { label: "Owners", href: "/admin/owners", icon: UserRoundCheck },
+  { label: "Bookings", href: "/admin/bookings", icon: BarChart3 },
+  { label: "Purchases", href: "/admin/purchases", icon: ShoppingCart },
+  { label: "Payments", href: "/admin/payments", icon: CreditCard },
+  { label: "Receipts", href: "/admin/receipts", icon: ReceiptText },
   { label: "Settings", href: "/admin/settings", icon: Settings },
-  { label: "Utilisateurs", href: "/admin", icon: Users },
+  { label: "Logout", href: "/admin/login", icon: LogOut },
 ];
 
-export default function AdminSidebar() {
+function SidebarContent({ onNavigate, showCloseButton = false }) {
   return (
-    <aside className="hidden min-h-screen w-72 border-r border-white/10 bg-black/95 px-5 py-6 lg:fixed lg:inset-y-0 lg:flex lg:flex-col">
-      <div className="flex items-center gap-3 px-2">
-        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-red-600 to-orange-500 text-lg font-black text-white shadow-lg shadow-red-600/30">
-          M
+    <div className="flex min-h-full flex-col px-5 py-6">
+      <div className="flex items-center justify-between gap-3 px-2">
+        <div className="flex items-center gap-3">
+          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-red-600 to-orange-500 text-lg font-black text-white shadow-lg shadow-red-600/30">
+            M
+          </div>
+          <div>
+            <p className="text-lg font-bold text-white">MITEL Admin</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-gray-500">SuperAdmin</p>
+          </div>
         </div>
-        <div>
-          <p className="text-lg font-bold text-white">MITEL Admin</p>
-          <p className="text-xs uppercase tracking-[0.3em] text-gray-500">SuperAdmin</p>
-        </div>
+        {showCloseButton && (
+          <button
+            type="button"
+            className="rounded-2xl border border-white/10 p-2 text-gray-300 transition hover:border-red-500/40 hover:text-white"
+            onClick={onNavigate}
+            aria-label="Fermer la sidebar admin"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        )}
       </div>
 
-      <nav className="mt-10 space-y-2">
+      <nav className="mt-10 space-y-2" aria-label="Navigation admin">
         {navigation.map((item) => (
           <NavLink
             key={item.label}
             to={item.href}
-            end={item.href === "/admin"}
+            end={item.href === "/admin" || item.href === "/admin/login"}
+            onClick={onNavigate}
             className={({ isActive }) =>
               `flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-semibold transition ${
                 isActive
@@ -53,6 +77,30 @@ export default function AdminSidebar() {
           Pilotage des locations, ventes, paiements et commissions.
         </p>
       </div>
-    </aside>
+    </div>
+  );
+}
+
+export default function AdminSidebar({ isMobileOpen = false, onMobileClose }) {
+  return (
+    <>
+      <aside className="hidden min-h-screen w-72 border-r border-white/10 bg-black/95 lg:fixed lg:inset-y-0 lg:flex lg:flex-col">
+        <SidebarContent />
+      </aside>
+
+      <div className={`fixed inset-0 z-50 lg:hidden ${isMobileOpen ? "" : "pointer-events-none"}`} aria-hidden={!isMobileOpen}>
+        <div
+          className={`absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity ${isMobileOpen ? "opacity-100" : "opacity-0"}`}
+          onClick={onMobileClose}
+        />
+        <aside
+          className={`absolute inset-y-0 left-0 flex w-[min(20rem,86vw)] flex-col border-r border-white/10 bg-black/95 shadow-2xl shadow-black/70 transition-transform duration-300 ${
+            isMobileOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
+        >
+          <SidebarContent onNavigate={onMobileClose} showCloseButton />
+        </aside>
+      </div>
+    </>
   );
 }
