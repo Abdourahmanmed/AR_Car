@@ -16,6 +16,7 @@ import PurchasesPage from "./admin/pages/PurchasesPage";
 import PurchaseDetailsPage from "./admin/pages/PurchaseDetailsPage";
 import PaymentsPage from "./admin/pages/PaymentsPage";
 import ReceiptsPage from "./admin/pages/ReceiptsPage";
+import SettingsPage from "./admin/pages/SettingsPage";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           <Route path="purchases/:id" element={<PurchaseDetailsPage />} />
           <Route path="payments" element={<PaymentsPage />} />
           <Route path="receipts" element={<ReceiptsPage />} />
+          <Route path="settings" element={<SettingsPage />} />
         </Route>
       </Routes>
     </Router>
