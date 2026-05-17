@@ -1,10 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { BarChart3, Car, CreditCard, Gauge, ShoppingCart, Users } from "lucide-react";
+import { BarChart3, Car, CreditCard, Gauge, ShoppingCart, UserRoundCheck, Users } from "lucide-react";
 
 const navigation = [
   { label: "Dashboard", href: "/admin", icon: Gauge },
   { label: "Voitures", href: "/admin/cars", icon: Car },
+  { label: "Propriétaires", href: "/admin/owners", icon: UserRoundCheck },
   { label: "Réservations", href: "/admin", icon: BarChart3 },
   { label: "Achats", href: "/admin", icon: ShoppingCart },
   { label: "Paiements", href: "/admin", icon: CreditCard },
