@@ -12,6 +12,8 @@ import OwnersPage from "./admin/pages/OwnersPage";
 import OwnerDetailsPage from "./admin/pages/OwnerDetailsPage";
 import BookingsPage from "./admin/pages/BookingsPage";
 import BookingDetailsPage from "./admin/pages/BookingDetailsPage";
+import PurchasesPage from "./admin/pages/PurchasesPage";
+import PurchaseDetailsPage from "./admin/pages/PurchaseDetailsPage";
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
           <Route path="owners/:id" element={<OwnerDetailsPage />} />
           <Route path="bookings" element={<BookingsPage />} />
           <Route path="bookings/:id" element={<BookingDetailsPage />} />
+          <Route path="purchases" element={<PurchasesPage />} />
+          <Route path="purchases/:id" element={<PurchaseDetailsPage />} />
         </Route>
       </Routes>
     </Router>
