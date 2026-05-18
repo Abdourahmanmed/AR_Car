@@ -13,7 +13,7 @@ export default function AdminLoginPage() {
               <p className="mb-4 inline-flex rounded-full border border-red-500/30 bg-red-500/10 px-4 py-2 text-sm font-semibold text-red-200">
                 Premium automotive control room
               </p>
-              <h1 className="text-5xl font-black leading-tight">Gestion Admin MITEL MOTOR</h1>
+              <h1 className="text-5xl font-black leading-tight">Gestion DriveUp Admin</h1>
               <p className="mt-5 text-lg leading-8 text-gray-300">
                 Suivez les locations, demandes d'achat, paiements et revenus depuis un espace sécurisé.
               </p>
@@ -36,7 +36,7 @@ export default function AdminLoginPage() {
                 <span className="text-sm font-semibold text-gray-300">Email professionnel</span>
                 <input
                   className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-white outline-none transition placeholder:text-gray-600 focus:border-red-500/60"
-                  placeholder="admin@mitelmotor.com"
+                  placeholder="admin@driveup.com"
                   type="email"
                 />
               </label>

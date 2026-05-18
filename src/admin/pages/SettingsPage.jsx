@@ -9,8 +9,8 @@ const currencyFormatter = new Intl.NumberFormat("fr-FR", {
 
 const initialSettings = {
   branding: {
-    platformName: "MITEL Auto",
-    supportEmail: "support@mitel-auto.com",
+    platformName: "DriveUp",
+    supportEmail: "support@driveup.com",
     accentColor: "#dc2626",
     publicTagline: "Location et vente automobile premium",
   },

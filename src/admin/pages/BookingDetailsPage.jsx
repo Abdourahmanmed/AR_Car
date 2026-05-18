@@ -254,7 +254,7 @@ export default function BookingDetailsPage() {
           <div className="rounded-3xl border border-white/10 bg-white p-6 text-zinc-950">
             <div className="flex items-start justify-between gap-4 border-b border-zinc-200 pb-4">
               <div>
-                <p className="text-xs font-black uppercase tracking-[0.25em] text-red-600">MITEL Cars</p>
+                <p className="text-xs font-black uppercase tracking-[0.25em] text-red-600">DriveUp</p>
                 <h4 className="mt-2 text-2xl font-black">Reçu {booking.id}</h4>
               </div>
               <MapPin className="h-7 w-7 text-orange-500" />
