@@ -31,11 +31,11 @@ function SidebarContent({ onNavigate, showCloseButton = false }) {
       <div className="flex items-center justify-between gap-3 px-2">
         <div className="flex items-center gap-3">
           <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-red-600 to-orange-500 text-lg font-black text-white shadow-lg shadow-red-600/30">
-            M
+            D
           </div>
           <div>
-            <p className="text-lg font-bold text-white">MITEL Admin</p>
-            <p className="text-xs uppercase tracking-[0.3em] text-gray-500">SuperAdmin</p>
+            <p className="text-lg font-bold text-white">DriveUp Admin</p>
+            <p className="text-xs font-semibold tracking-[0.25em] text-gray-500">SuperAdmin</p>
           </div>
         </div>
         {showCloseButton && (
@@ -84,7 +84,7 @@ function SidebarContent({ onNavigate, showCloseButton = false }) {
 export default function AdminSidebar({ isMobileOpen = false, onMobileClose }) {
   return (
     <>
-      <aside className="hidden min-h-screen w-72 border-r border-white/10 bg-black/95 lg:fixed lg:inset-y-0 lg:flex lg:flex-col">
+      <aside className="hidden min-h-screen w-72 border-r border-white/10 bg-black/95 lg:fixed lg:inset-y-0 lg:z-40 lg:flex lg:flex-col">
         <SidebarContent />
       </aside>
 

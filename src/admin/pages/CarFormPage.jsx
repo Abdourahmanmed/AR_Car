@@ -160,7 +160,7 @@ export default function CarFormPage() {
               <input className={inputClass} value={form.address} placeholder="Quartier, rue, point de retrait" onChange={(event) => updateField("address", event.target.value)} />
             </Field>
             <Field label="Owner">
-              <input className={inputClass} value={form.owner} placeholder="Mitel Fleet" onChange={(event) => updateField("owner", event.target.value)} />
+              <input className={inputClass} value={form.owner} placeholder="DriveUp Fleet" onChange={(event) => updateField("owner", event.target.value)} />
             </Field>
           </div>
         </section>

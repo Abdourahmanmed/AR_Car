@@ -20,9 +20,9 @@ export const purchaseRequestStatusLabels = {
 export const adminOwners = [
   {
     id: "OWN-001",
-    name: "Mitel Fleet",
+    name: "DriveUp Fleet",
     phone: "+253 77 10 20 30",
-    email: "fleet@mitel.dj",
+    email: "fleet@driveup.dj",
     city: "Djibouti",
     address: "Héron, Avenue Nelson Mandela",
     status: "active",

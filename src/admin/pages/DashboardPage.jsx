@@ -85,8 +85,8 @@ export default function DashboardPage() {
             <p className="mb-4 inline-flex rounded-full border border-red-500/30 bg-red-500/10 px-4 py-2 text-sm font-bold text-red-200">
               Dashboard mock data
             </p>
-            <h2 className="text-3xl font-black tracking-tight text-white lg:text-5xl">
-              Base Admin/SuperAdmin pour piloter la plateforme automobile.
+            <h2 className="max-w-4xl text-3xl font-black leading-tight tracking-tight text-white lg:text-5xl lg:leading-tight">
+              Base <span className="whitespace-nowrap bg-transparent text-white">Admin/SuperAdmin</span> pour piloter la plateforme automobile.
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-8 text-gray-400">
               Cette première base centralise les indicateurs de location, vente, paiements et commissions sans connecter de backend.

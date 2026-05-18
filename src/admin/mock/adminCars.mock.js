@@ -15,7 +15,7 @@ export const adminCars = [
     plateNumber: "DJ-4472-A",
     city: "Djibouti",
     address: "Héron, Avenue Nelson Mandela",
-    owner: "Mitel Fleet",
+    owner: "DriveUp Fleet",
     images: [
       "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=900&q=80",
