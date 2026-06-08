@@ -13,9 +13,9 @@ import CarDetailsModal from "../components/detailsmodal";
 import { useAuth } from "../context/userContext";
 
 export default function Cars() {
-  //auth verfication
+  // Auth verification
   const { isAuthenticated, user } = useAuth();
-  console.log(isAuthenticated, user);
+
   // Filtres
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedBrand, setSelectedBrand] = useState("all");
@@ -31,12 +31,12 @@ export default function Cars() {
   const [reservationData, setReservationData] = useState(null);
   const [totalPrice, setTotalPrice] = useState(0);
 
-  // login
-
+  // Login
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showReservationModal, setShowReservationModal] = useState(false);
   const [selectedCar, setSelectedCar] = useState(null);
-  // details
+
+  // Details
   const [showDetailsModal, setShowDetailsModal] = useState(false);
   const [detailsCar, setDetailsCar] = useState(null);
 
@@ -54,20 +54,21 @@ export default function Cars() {
 
   const brands = [...new Set(cars.map((car) => car.brand))];
   const categories = [...new Set(cars.map((car) => car.category))];
-  // 👉 Ouvrir le modal Détails
+
+  // Ouvrir le modal Détails
   const handleShowDetails = (car) => {
     setDetailsCar(car);
     setShowDetailsModal(true);
   };
+
   const handleReserveFromDetails = () => {
     setShowDetailsModal(false);
     handleReserveClick(detailsCar);
   };
 
-  //  "Réserver"
+  // Bouton "Réserver"
   const handleReserveClick = (car) => {
     setSelectedCar(car);
-
     if (isAuthenticated) {
       setShowReservationModal(true);
     } else {
@@ -86,12 +87,13 @@ export default function Cars() {
       />
 
       {/* Hero */}
-      <section className="relative pt-32 pb-12 px-6">
+      <section className="relative pt-24 sm:pt-32 pb-8 sm:pb-12 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl font-bold mb-4">
-            Notre Collection <span className="text-red-500">Premium</span>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
+            Notre Collection{" "}
+            <span className="text-red-500">Premium</span>
           </h1>
-          <p className="text-gray-400">
+          <p className="text-gray-400 text-sm sm:text-base">
             {filteredCars.length} véhicules disponibles
           </p>
         </div>
@@ -126,6 +128,8 @@ export default function Cars() {
         selectedCar={selectedCar}
         setShowReservationModal={setShowReservationModal}
       />
+
+      {/* Details */}
       <CarDetailsModal
         showModal={showDetailsModal}
         setShowModal={setShowDetailsModal}
@@ -143,7 +147,8 @@ export default function Cars() {
         setReservationData={setReservationData}
         setTotalPrice={setTotalPrice}
       />
-      {/* paiement */}
+
+      {/* Paiement */}
       <Paiement
         showPaymentModal={showPaymentModal}
         setShowPaymentModal={setShowPaymentModal}

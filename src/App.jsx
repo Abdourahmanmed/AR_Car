@@ -1,5 +1,10 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useState } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Outlet,
+} from "react-router-dom";
 import Home from "./pages/home";
 import Cars from "./pages/car";
 import AdminLayout from "./admin/layout/AdminLayout";
@@ -17,13 +22,36 @@ import PurchaseDetailsPage from "./admin/pages/PurchaseDetailsPage";
 import PaymentsPage from "./admin/pages/PaymentsPage";
 import ReceiptsPage from "./admin/pages/ReceiptsPage";
 import SettingsPage from "./admin/pages/SettingsPage";
+import Navbar from "./components/navbar";
+import Connexion from "./components/login";
+
+function PublicLayout() {
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showReservationModal, setShowReservationModal] = useState(false);
+
+  return (
+    <div className="min-h-screen bg-black text-white">
+      <Navbar setShowLoginModal={setShowLoginModal} />
+      <Outlet />
+      {/* ✅ Modal Connexion accessible sur toutes les pages publiques */}
+      <Connexion
+        showLoginModal={showLoginModal}
+        setShowLoginModal={setShowLoginModal}
+        setShowReservationModal={setShowReservationModal}
+      />
+    </div>
+  );
+}
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/cars" element={<Cars />} />
+        <Route element={<PublicLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/cars" element={<Cars />} />
+        </Route>
+        {/* Route /login supprimée — remplacée par le modal */}
         <Route path="/admin/login" element={<AdminLoginPage />} />
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<DashboardPage />} />
