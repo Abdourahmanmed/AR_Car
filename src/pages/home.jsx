@@ -314,10 +314,13 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-8 sm:mt-12">
-            <button className="px-6 sm:px-8 py-3 sm:py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full font-semibold hover:bg-white/20 transition inline-flex items-center text-sm sm:text-base">
+           <Link
+             to="/cars"
+            className="px-6 sm:px-8 py-3 sm:py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full font-semibold hover:bg-white/20 transition inline-flex items-center text-sm sm:text-base"
+                 >
               Voir Tous les Véhicules
               <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -402,10 +405,10 @@ export default function Home() {
             <div className="col-span-2 md:col-span-1">
               <div className="flex items-center space-x-2 mb-4">
                 <div className="w-9 h-9 sm:w-10 sm:h-10 bg-gradient-to-br from-red-600 to-orange-500 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-lg sm:text-xl">M</span>
+                  <span className="text-white font-bold text-lg sm:text-xl">D</span>
                 </div>
                 <div>
-                  <div className="text-base sm:text-lg font-bold">MITEL MOTOR</div>
+                  <div className="text-base sm:text-lg font-bold">Djib Drive</div>
                   <div className="text-xs text-gray-400">
                     Premium Dealership
                   </div>
@@ -445,7 +448,7 @@ export default function Home() {
                 </li>
                 <li className="flex items-center space-x-2">
                   <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
-                  <span>contact@mitelmotor.fr</span>
+                  <span>contact@Djib Drive.dj</span>
                 </li>
                 <li className="flex items-start space-x-2">
                   <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 mt-0.5" />
@@ -456,7 +459,7 @@ export default function Home() {
           </div>
 
           <div className="border-t border-gray-800 pt-6 sm:pt-8 text-center text-gray-400 text-xs sm:text-sm">
-            <p>&copy; 2024 Mitel Motor. Tous droits réservés.</p>
+            <p>&copy; 2024 Djib Drive. Tous droits réservés.</p>
           </div>
         </div>
       </footer>

@@ -9,10 +9,10 @@ function Footer() {
             <div>
               <div className="flex items-center space-x-2 mb-4">
                 <div className="w-10 h-10 bg-gradient-to-br from-red-600 to-orange-500 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">M</span>
+                  <span className="text-white font-bold text-xl">D</span>
                 </div>
                 <div>
-                  <div className="text-lg font-bold">MITEL MOTOR</div>
+                  <div className="text-lg font-bold">Djib DRive</div>
                   <div className="text-xs text-gray-400">
                     Premium Dealership
                   </div>
@@ -84,7 +84,7 @@ function Footer() {
                 </li>
                 <li className="flex items-center space-x-2">
                   <Mail className="w-4 h-4" />
-                  <span>contact@mitelmotor.com</span>
+                  <span>contact@Djib Drive.dj</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <MapPin className="w-4 h-4" />
@@ -95,7 +95,7 @@ function Footer() {
           </div>
 
           <div className="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
-            <p>&copy; 2024 Mitel Motor. Tous droits réservés.</p>
+            <p>&copy; 2024 Djib Drive. Tous droits réservés.</p>
           </div>
         </div>
       </footer>
