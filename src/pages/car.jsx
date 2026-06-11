@@ -13,41 +13,32 @@ import CarDetailsModal from "../components/detailsmodal";
 import { useAuth } from "../context/userContext";
 
 export default function Cars() {
-  // Auth verification
   const { isAuthenticated, user } = useAuth();
 
-  // Filtres
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedBrand, setSelectedBrand] = useState("all");
   const [priceRange, setPriceRange] = useState("all");
   const [showFilters, setShowFilters] = useState(false);
 
-  // Auth & réservation
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
 
-  // Paiement
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [reservationData, setReservationData] = useState(null);
   const [totalPrice, setTotalPrice] = useState(0);
 
-  // Login
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showReservationModal, setShowReservationModal] = useState(false);
   const [selectedCar, setSelectedCar] = useState(null);
 
-  // Details
   const [showDetailsModal, setShowDetailsModal] = useState(false);
   const [detailsCar, setDetailsCar] = useState(null);
 
-  // Filtres voitures
   const filteredCars = cars.filter((car) => {
-    if (selectedCategory !== "all" && car.category !== selectedCategory)
-      return false;
+    if (selectedCategory !== "all" && car.category !== selectedCategory) return false;
     if (selectedBrand !== "all" && car.brand !== selectedBrand) return false;
     if (priceRange === "low" && car.price > 150000) return false;
-    if (priceRange === "mid" && (car.price < 150000 || car.price > 200000))
-      return false;
+    if (priceRange === "mid" && (car.price < 150000 || car.price > 200000)) return false;
     if (priceRange === "high" && car.price < 200000) return false;
     return true;
   });
@@ -55,7 +46,6 @@ export default function Cars() {
   const brands = [...new Set(cars.map((car) => car.brand))];
   const categories = [...new Set(cars.map((car) => car.category))];
 
-  // Ouvrir le modal Détails
   const handleShowDetails = (car) => {
     setDetailsCar(car);
     setShowDetailsModal(true);
@@ -66,7 +56,6 @@ export default function Cars() {
     handleReserveClick(detailsCar);
   };
 
-  // Bouton "Réserver"
   const handleReserveClick = (car) => {
     setSelectedCar(car);
     if (isAuthenticated) {
@@ -77,8 +66,7 @@ export default function Cars() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* Navbar */}
+    <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white transition-colors duration-300">
       <Navbar
         isLoggedIn={isLoggedIn}
         setIsLoggedIn={setIsLoggedIn}
@@ -93,13 +81,12 @@ export default function Cars() {
             Notre Collection{" "}
             <span className="text-red-500">Premium</span>
           </h1>
-          <p className="text-gray-400 text-sm sm:text-base">
+          <p className="text-gray-500 dark:text-gray-400 text-sm sm:text-base">
             {filteredCars.length} véhicules disponibles
           </p>
         </div>
       </section>
 
-      {/* Filtres */}
       <Filterbar
         showFilters={showFilters}
         setShowFilters={setShowFilters}
@@ -113,13 +100,11 @@ export default function Cars() {
         setPriceRange={setPriceRange}
       />
 
-      {/* Liste voitures */}
       <Card
         filteredCars={filteredCars}
         handleReserveClick={handleReserveClick}
       />
 
-      {/* Login */}
       <Connexion
         showLoginModal={showLoginModal}
         setShowLoginModal={setShowLoginModal}
@@ -129,7 +114,6 @@ export default function Cars() {
         setShowReservationModal={setShowReservationModal}
       />
 
-      {/* Details */}
       <CarDetailsModal
         showModal={showDetailsModal}
         setShowModal={setShowDetailsModal}
@@ -137,7 +121,6 @@ export default function Cars() {
         onReserve={handleReserveFromDetails}
       />
 
-      {/* Réservation */}
       <Reservation
         showReservationModal={showReservationModal}
         setShowReservationModal={setShowReservationModal}
@@ -148,7 +131,6 @@ export default function Cars() {
         setTotalPrice={setTotalPrice}
       />
 
-      {/* Paiement */}
       <Paiement
         showPaymentModal={showPaymentModal}
         setShowPaymentModal={setShowPaymentModal}
@@ -157,7 +139,6 @@ export default function Cars() {
         totalPrice={totalPrice}
       />
 
-      {/* Footer */}
       <Footer />
     </div>
   );

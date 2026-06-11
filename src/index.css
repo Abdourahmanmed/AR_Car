@@ -1,3 +1,6 @@
 @import "tailwindcss";
+
+/* ✅ Cible <html data-theme="dark"> qui contient TOUT */
+@variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 @import "tw-animate-css";
 

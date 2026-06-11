@@ -1,16 +1,16 @@
 import { Check, Star } from "lucide-react";
 import React from "react";
 
-function Card({ filteredCars, handleReserveClick}) {
+function Card({ filteredCars, handleReserveClick }) {
   return (
     <section className="py-12 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-8">
-          <p className="text-gray-400">
+          <p className="text-gray-500 dark:text-gray-400">
             {filteredCars.length} véhicule{filteredCars.length > 1 ? "s" : ""}{" "}
             trouvé{filteredCars.length > 1 ? "s" : ""}
           </p>
-          <select className="bg-black/50 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-red-500">
+          <select className="bg-white dark:bg-black/50 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white focus:outline-none focus:border-red-500 transition-colors duration-300">
             <option>Plus récent</option>
             <option>Prix croissant</option>
             <option>Prix décroissant</option>
@@ -21,7 +21,7 @@ function Card({ filteredCars, handleReserveClick}) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredCars.map((car) => (
             <div key={car.id} className="group relative">
-              <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl overflow-hidden border border-gray-700 hover:border-red-500/50 transition-all duration-300">
+              <div className="bg-gray-50 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:border-red-500/50 transition-all duration-300">
                 <div className="relative h-56 overflow-hidden">
                   <img
                     src={car.image}
@@ -43,7 +43,7 @@ function Card({ filteredCars, handleReserveClick}) {
                   </div>
 
                   <div className="absolute top-4 right-4">
-                    <button className="w-10 h-10 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-red-600 transition">
+                    <button className="w-10 h-10 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-red-600 transition text-white">
                       <Star className="w-5 h-5" />
                     </button>
                   </div>
@@ -59,10 +59,8 @@ function Card({ filteredCars, handleReserveClick}) {
 
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs text-red-500 font-semibold">
-                      {car.category}
-                    </span>
-                    <span className="text-xs text-gray-400">{car.brand}</span>
+                    <span className="text-xs text-red-500 font-semibold">{car.category}</span>
+                    <span className="text-xs text-gray-500 dark:text-gray-400">{car.brand}</span>
                   </div>
 
                   <h3 className="text-xl font-bold mb-4 group-hover:text-red-500 transition">
@@ -70,41 +68,20 @@ function Card({ filteredCars, handleReserveClick}) {
                   </h3>
 
                   <div className="grid grid-cols-2 gap-2 mb-4">
-                    <div className="bg-black/50 rounded-lg p-3">
-                      <div className="text-gray-400 text-xs mb-1">
-                        Puissance
+                    {[
+                      { label: "Puissance", value: car.specs.power },
+                      { label: "Vitesse Max", value: car.specs.speed },
+                      { label: "0-100 km/h", value: car.specs.time },
+                      { label: "Carburant", value: car.specs.fuel },
+                    ].map((spec) => (
+                      <div key={spec.label} className="bg-gray-100 dark:bg-black/50 rounded-lg p-3 transition-colors duration-300">
+                        <div className="text-gray-500 dark:text-gray-400 text-xs mb-1">{spec.label}</div>
+                        <div className="font-semibold text-sm">{spec.value}</div>
                       </div>
-                      <div className="font-semibold text-sm">
-                        {car.specs.power}
-                      </div>
-                    </div>
-                    <div className="bg-black/50 rounded-lg p-3">
-                      <div className="text-gray-400 text-xs mb-1">
-                        Vitesse Max
-                      </div>
-                      <div className="font-semibold text-sm">
-                        {car.specs.speed}
-                      </div>
-                    </div>
-                    <div className="bg-black/50 rounded-lg p-3">
-                      <div className="text-gray-400 text-xs mb-1">
-                        0-100 km/h
-                      </div>
-                      <div className="font-semibold text-sm">
-                        {car.specs.time}
-                      </div>
-                    </div>
-                    <div className="bg-black/50 rounded-lg p-3">
-                      <div className="text-gray-400 text-xs mb-1">
-                        Carburant
-                      </div>
-                      <div className="font-semibold text-sm">
-                        {car.specs.fuel}
-                      </div>
-                    </div>
+                    ))}
                   </div>
 
-                  <div className="flex items-center justify-between text-xs text-gray-400 mb-4 pb-4 border-b border-gray-700">
+                  <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 mb-4 pb-4 border-b border-gray-200 dark:border-gray-700">
                     <span>{car.year}</span>
                     <span>•</span>
                     <span>{car.km.toLocaleString()} km</span>
@@ -113,7 +90,7 @@ function Card({ filteredCars, handleReserveClick}) {
                   </div>
 
                   <div className="mb-3">
-                    <div className="text-xs text-gray-400">Location</div>
+                    <div className="text-xs text-gray-500 dark:text-gray-400">Location</div>
                     <div className="text-sm font-semibold text-orange-500">
                       {car.pricePerDay} FJ/jour
                     </div>
@@ -121,23 +98,21 @@ function Card({ filteredCars, handleReserveClick}) {
 
                   <div className="flex justify-between items-center">
                     <div>
-                      <div className="text-xs text-gray-400 mb-1">
-                        Prix d'achat
-                      </div>
+                      <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Prix d'achat</div>
                       <div className="text-2xl font-bold text-red-500">
                         {car.price.toLocaleString()} FDJ
                       </div>
                     </div>
-                    
+
                     {car.available ? (
                       <button
                         onClick={() => handleReserveClick(car)}
-                        className="px-6 py-3 bg-gradient-to-r from-red-600 to-orange-500 rounded-full text-sm font-semibold hover:shadow-lg hover:shadow-red-500/50 transition"
+                        className="px-6 py-3 bg-gradient-to-r from-red-600 to-orange-500 text-white rounded-full text-sm font-semibold hover:shadow-lg hover:shadow-red-500/50 transition"
                       >
                         Réserver
                       </button>
                     ) : (
-                      <button className="px-6 py-3 bg-gray-700 rounded-full text-sm font-semibold cursor-not-allowed opacity-50">
+                      <button className="px-6 py-3 bg-gray-200 dark:bg-gray-700 rounded-full text-sm font-semibold cursor-not-allowed opacity-50">
                         Indisponible
                       </button>
                     )}
@@ -149,19 +124,19 @@ function Card({ filteredCars, handleReserveClick}) {
         </div>
 
         <div className="flex justify-center items-center space-x-2 mt-12">
-          <button className="px-4 py-2 bg-white/10 border border-white/20 rounded-lg hover:bg-white/20 transition">
+          <button className="px-4 py-2 bg-black/10 dark:bg-white/10 border border-black/20 dark:border-white/20 rounded-lg hover:bg-black/20 dark:hover:bg-white/20 transition">
             Précédent
           </button>
-          <button className="px-4 py-2 bg-gradient-to-r from-red-600 to-orange-500 rounded-lg font-semibold">
+          <button className="px-4 py-2 bg-gradient-to-r from-red-600 to-orange-500 text-white rounded-lg font-semibold">
             1
           </button>
-          <button className="px-4 py-2 bg-white/10 border border-white/20 rounded-lg hover:bg-white/20 transition">
+          <button className="px-4 py-2 bg-black/10 dark:bg-white/10 border border-black/20 dark:border-white/20 rounded-lg hover:bg-black/20 dark:hover:bg-white/20 transition">
             2
           </button>
-          <button className="px-4 py-2 bg-white/10 border border-white/20 rounded-lg hover:bg-white/20 transition">
+          <button className="px-4 py-2 bg-black/10 dark:bg-white/10 border border-black/20 dark:border-white/20 rounded-lg hover:bg-black/20 dark:hover:bg-white/20 transition">
             3
           </button>
-          <button className="px-4 py-2 bg-white/10 border border-white/20 rounded-lg hover:bg-white/20 transition">
+          <button className="px-4 py-2 bg-black/10 dark:bg-white/10 border border-black/20 dark:border-white/20 rounded-lg hover:bg-black/20 dark:hover:bg-white/20 transition">
             Suivant
           </button>
         </div>
